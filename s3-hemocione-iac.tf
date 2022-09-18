@@ -53,7 +53,7 @@ data "aws_iam_policy_document" "hemocione-iac" {
       "${aws_s3_bucket.hemocione-iac.arn}/*",
     ]
     principals {
-      type        = "AWS"
+      type = "AWS"
       identifiers = [
         "arn:aws:iam::401973936407:root",
       ]
