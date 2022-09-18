@@ -14,3 +14,4 @@ Após a criação do terraform, recomendamos que executem o comando `terraform p
 
 Para criar os recursos, basta executar o comando `terraform apply` na raiz do repositório.
 
+Antes de commitar as alterações, é necessário executar o comando `terraform fmt` para formatar os arquivos de configuração.
