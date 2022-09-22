@@ -8,15 +8,6 @@ resource "aws_instance" "hemocione-caprover" {
     aws_security_group.hemocione-sg.id
   ]
 
-  ebs_block_device {
-    device_name = "/dev/sda1"
-    volume_type = "gp2"
-    volume_size = 8
-    tags = {
-      Name = "hemocione-caprover-ebs"
-    }
-  }
-
   tags = {
     Name = "hemocione-caprover"
   }
