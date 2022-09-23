@@ -4,6 +4,7 @@ resource "aws_instance" "hemocione-caprover" {
   subnet_id     = aws_subnet.hemocione-subnet-ec2.id
   key_name      = aws_key_pair.hemocione-caprover.key_name
 
+  associate_public_ip_address = true
   vpc_security_group_ids = [
     aws_security_group.hemocione-sg.id
   ]
