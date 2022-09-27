@@ -29,7 +29,7 @@ resource "aws_db_instance" "hemocione-rds" {
   instance_class    = "db.t2.micro"
   allocated_storage = 20
   storage_type      = "gp2"
-
+  publicly_accessible = true
   vpc_security_group_ids = [
     aws_security_group.hemocione-sg.id
   ]
