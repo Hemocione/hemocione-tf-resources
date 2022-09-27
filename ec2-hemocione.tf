@@ -1,5 +1,5 @@
 resource "aws_instance" "hemocione-caprover" {
-  ami           = data.aws_ami.ubuntu18.id
+  ami           = "ami-0ee23bfc74a881de5"
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.hemocione-subnet-ec2.id
   key_name      = aws_key_pair.hemocione-caprover.key_name
@@ -11,6 +11,14 @@ resource "aws_instance" "hemocione-caprover" {
 
   tags = {
     Name = "hemocione-caprover"
+  }
+
+  root_block_device {
+    volume_type = "gp2"
+    volume_size = 8
+    tags = {
+      Name = "hemocione-caprover-ebs"
+    }
   }
 }
 
