@@ -61,6 +61,18 @@ resource "aws_subnet" "hemocione-subnet-rds-f" {
   }
 }
 
+resource "aws_db_subnet_group" "hemocione-subnetgroup-rds" {
+  name = "hemocione-subnetgroup-rds"
+  subnet_ids = [
+    aws_subnet.hemocione-subnet-rds-a.id,
+    aws_subnet.hemocione-subnet-rds-b.id,
+    aws_subnet.hemocione-subnet-rds-c.id,
+    aws_subnet.hemocione-subnet-rds-d.id,
+    aws_subnet.hemocione-subnet-rds-e.id,
+    aws_subnet.hemocione-subnet-rds-f.id
+  ]
+}
+
 resource "aws_network_acl" "hemocione-acl" {
   vpc_id = aws_vpc.hemocione-vpc.id
   subnet_ids = [
