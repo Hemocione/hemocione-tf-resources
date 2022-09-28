@@ -25,8 +25,8 @@ resource "aws_db_instance" "hemocione-rds" {
   db_name           = "hemocione"
   identifier        = "hemocione"
   engine            = "postgres"
-  engine_version    = "12.11"
-  instance_class    = "db.t2.micro"
+  engine_version    = "14.4"
+  instance_class    = "db.t3.micro"
   allocated_storage = 20
   storage_type      = "gp2"
   publicly_accessible = true
@@ -35,11 +35,13 @@ resource "aws_db_instance" "hemocione-rds" {
   ]
 
   db_subnet_group_name = aws_db_subnet_group.hemocione-subnetgroup-rds.name
-  parameter_group_name = "default.postgres12"
+  parameter_group_name = "default.postgres14"
 
   username          = data.aws_kms_secrets.hemocione-rds.plaintext["master_username"]
   password          = data.aws_kms_secrets.hemocione-rds.plaintext["master_password"]
   port              = "5432"
   multi_az          = false
   storage_encrypted = false
+  apply_immediately = true
+  allow_major_version_upgrade = true
 }
