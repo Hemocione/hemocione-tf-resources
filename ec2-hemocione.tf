@@ -23,7 +23,7 @@ resource "aws_instance" "hemocione-caprover" {
 }
 
 resource "aws_eip" "lb" {
-  instance = "${aws_instance.hemocione-caprover.id}"
+  instance = aws_instance.hemocione-caprover.id
   vpc      = true
 }
 
