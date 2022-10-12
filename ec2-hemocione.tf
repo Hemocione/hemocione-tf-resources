@@ -22,6 +22,11 @@ resource "aws_instance" "hemocione-caprover" {
   }
 }
 
+resource "aws_eip" "lb" {
+  instance = "${aws_instance.hemocione-caprover.id}"
+  vpc      = true
+}
+
 resource "aws_subnet" "hemocione-subnet-ec2" {
   vpc_id            = aws_vpc.hemocione-vpc.id
   cidr_block        = "172.31.102.0/24"
