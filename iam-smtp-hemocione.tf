@@ -9,8 +9,8 @@ resource "aws_iam_access_key" "smtp-hemocione-user" {
 data "aws_iam_policy_document" "ses-sender-policy-document" {
   statement {
     sid = "SendEmail"
-    actions   = [
-        "ses:SendRawEmail"
+    actions = [
+      "ses:SendRawEmail"
     ]
     resources = ["*"]
   }
@@ -32,6 +32,6 @@ output "smtp-hemocione-username" {
 }
 
 output "smtp-hemocione-password" {
-  value = aws_iam_access_key.smtp-hemocione-user.ses_smtp_password_v4
+  value     = aws_iam_access_key.smtp-hemocione-user.ses_smtp_password_v4
   sensitive = true
 }
