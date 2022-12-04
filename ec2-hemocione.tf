@@ -15,7 +15,7 @@ resource "aws_instance" "hemocione-caprover" {
 
   root_block_device {
     volume_type = "gp2"
-    volume_size = 8
+    volume_size = 32
     tags = {
       Name = "hemocione-caprover-ebs"
     }
