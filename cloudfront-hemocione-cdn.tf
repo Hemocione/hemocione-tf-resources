@@ -90,6 +90,7 @@ resource "aws_cloudfront_distribution" "hemocione-cdn" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn = local.hemocione-cdn-acm-certificate-arn
+    ssl_support_method  = "sni-only"
   }
 }
