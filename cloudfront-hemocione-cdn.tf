@@ -17,6 +17,8 @@ resource "aws_cloudfront_distribution" "hemocione-cdn" {
   is_ipv6_enabled = true
   comment         = "hemocione assets distribution cdn"
 
+  aliases = ["cdn.hemocione.com.br"]
+
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
@@ -90,7 +92,8 @@ resource "aws_cloudfront_distribution" "hemocione-cdn" {
   }
 
   viewer_certificate {
-    acm_certificate_arn = local.hemocione-cdn-acm-certificate-arn
-    ssl_support_method  = "sni-only"
+    acm_certificate_arn      = local.hemocione-cdn-acm-certificate-arn
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 }
