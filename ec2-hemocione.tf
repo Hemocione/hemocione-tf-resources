@@ -1,6 +1,6 @@
 resource "aws_instance" "hemocione-caprover" {
   ami           = "ami-0ee23bfc74a881de5"
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   subnet_id     = aws_subnet.hemocione-subnet-ec2.id
   key_name      = aws_key_pair.hemocione-caprover.key_name
 
